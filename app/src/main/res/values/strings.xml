@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TODO List</string>
+    <string name="logo_left">TODO</string>
+    <string name="logo_right">List</string>
+    <string name="input_search_hint">Search by title &#8230;</string>
+    <string name="description_search_logo">search_logo</string>
+</resources>
