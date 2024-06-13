@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_light"
     android:orientation="vertical"
-    android:background="@color/red"
 
-    tools:context=".App"
->
+    tools:context=".App">
 
     <!-- Logo -->
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-    >
+        android:layout_marginTop="30dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,8 +24,7 @@
             android:fontFamily="@font/kalam_bold"
             android:text="@string/logo_left"
             android:textColor="@color/red"
-            android:textSize="48sp"
-        />
+            android:textSize="48sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,8 +32,7 @@
             android:fontFamily="@font/kalam_bold"
             android:text="@string/logo_right"
             android:textColor="@color/white"
-            android:textSize="48sp"
-        />
+            android:textSize="48sp" />
 
     </GridLayout>
 
@@ -46,51 +42,47 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:baselineAligned="false"
-        android:orientation="horizontal"
-    >
+        android:orientation="horizontal">
 
         <!-- SearchBar -->
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".70"
-        >
+            android:layout_weight=".70">
 
             <EditText
                 android:id="@+id/input_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="185dp"
-
                 android:layout_gravity="center"
+
                 android:layout_marginHorizontal="8dp"
-
-                android:paddingStart="45dp"
-                android:paddingEnd="20dp"
-                android:paddingVertical="3dp"
-
-                android:textColor="@color/white"
-                android:fontFamily="@font/kalam_regular"
-                android:textSize="18sp"
-                android:textColorHint="@color/gray"
-
-                android:inputType="text"
                 android:autofillHints="name"
-                android:hint="@string/input_search_hint"
 
                 android:background="@drawable/search_input_bg"
-            />
+                android:fontFamily="@font/kalam_regular"
+                android:hint="@string/input_search_hint"
+
+                android:inputType="text"
+                android:maxWidth="185dp"
+                android:paddingVertical="3dp"
+                android:paddingStart="45dp"
+
+                android:paddingEnd="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gray"
+
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
 
-                android:padding="4dp"
-
-                android:src="@drawable/search"
                 android:background="@drawable/search_bg"
+
                 android:contentDescription="@string/description_search_logo"
-            />
+                android:padding="4dp"
+                android:src="@drawable/search" />
 
         </FrameLayout>
 
@@ -98,37 +90,34 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_weight=".30"
-        >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".2"
-            />
+                android:layout_weight=".2" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".4"
-            />
+                android:layout_weight=".4" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".4"
-            />
+                android:layout_weight=".4" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-<!--    &lt;!&ndash; Main &ndash;&gt;-->
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recycler_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--    />-->
+    <!-- Main -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_layout" />
 
 </LinearLayout>
