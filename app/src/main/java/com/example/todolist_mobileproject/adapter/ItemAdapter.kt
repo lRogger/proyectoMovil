@@ -46,7 +46,7 @@ class ItemAdapter(
     // Tomamos el layout y lo convertimos a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_layout, parent, false)
+            .inflate(R.layout.item_component, parent, false)
         return ItemViewHolder(view)
     }
 

@@ -1,0 +1,24 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam_bold"
+            android:text="@string/logo_left"
+            android:textColor="@color/red"
+            android:textSize="48sp"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam_bold"
+            android:text="@string/logo_right"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+        />
+
+</GridLayout>

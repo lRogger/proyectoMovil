@@ -8,24 +8,42 @@
         android:id="@+id/item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title"
-        android:textSize="18sp"
+
+        android:text="@string/item_input_title_hint"
+        android:fontFamily="@font/kalam_bold"
         android:textColor="@color/white"
-        android:enabled="false" />
+        android:textSize="20sp"
+
+        android:enabled="false"
+    />
 
     <EditText
         android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="14sp"
+
+        android:hint="@string/item_input_description_hint"
+        android:fontFamily="@font/kalam_regular"
         android:textColor="@color/white"
-        android:enabled="false" />
+        android:textSize="14sp"
+
+        android:enabled="false"
+    />
 
     <Button
         android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="2dp"
+
+        android:text="@string/item_input_button_text"
+        android:fontFamily="@font/kalam_bold"
         android:textColor="@color/white"
-        android:text="Edit" />
+        android:textSize="14sp"
+
+        android:background="@drawable/search_input_bg"
+    />
 </LinearLayout>

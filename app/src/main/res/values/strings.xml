@@ -1,7 +1,20 @@
 <resources>
     <string name="app_name">TODO List</string>
+
     <string name="logo_left">TODO</string>
     <string name="logo_right">List</string>
-    <string name="input_search_hint">Search by title &#8230;</string>
-    <string name="description_search_logo">search_logo</string>
+
+    <string name="input_search_hint">Titulo &#8230;</string>
+    <string name="description_search_icon">search_logo</string>
+
+    <string name="item_input_title_hint">Titulo</string>
+    <string name="item_input_description_hint">Descripcion</string>
+    <string name="item_input_button_text">Editar</string>
+
+    <string name="description_filter_icon">filter_icon</string>
+    <string name="filter_opt_1">Estado</string>
+    <string name="filter_opt_2">Titulo</string>
+
+
+    <string name="add_item_button_text">Add item</string>
 </resources>

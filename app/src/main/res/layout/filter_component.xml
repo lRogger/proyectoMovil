@@ -1,0 +1,33 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+>
+
+		<ImageView
+			android:background="@drawable/search"
+			android:layout_width="30dp"
+			android:layout_height="30dp"
+			android:contentDescription="@string/description_filter_icon"
+		/>
+
+		<Button
+			android:id="@+id/filter_button"
+			android:paddingTop="3dp"
+			android:layout_width="fill_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/search_input_bg"
+
+			android:text="@string/filter_opt_1"
+			android:fontFamily="@font/kalam_bold"
+			android:textColor="@color/white"
+			android:textSize="16sp"
+			android:gravity="center"
+			android:textAlignment="gravity"
+
+		/>
+
+</LinearLayout>

@@ -1,38 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_light"
+    android:background="@color/background_color"
     android:orientation="vertical"
 
-    tools:context=".App">
+    tools:context=".App"
+    tools:theme="@style/PreviewTheme"
+>
 
-    <!-- Logo -->
+
+    <!-- Header -->
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_weight=".10"
+    >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/kalam_bold"
-            android:text="@string/logo_left"
-            android:textColor="@color/red"
-            android:textSize="48sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/kalam_bold"
-            android:text="@string/logo_right"
-            android:textColor="@color/white"
-            android:textSize="48sp" />
+        <include layout="@layout/logo_component" />
 
     </GridLayout>
 
@@ -41,83 +32,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+    >
 
-        <!-- SearchBar -->
-        <FrameLayout
+        <include
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".70">
+            android:layout_weight=".6"
+            layout="@layout/search_bar_component"
+            android:layout_marginEnd="10dp"
+        />
 
-            <EditText
-                android:id="@+id/input_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-
-                android:layout_marginHorizontal="8dp"
-                android:autofillHints="name"
-
-                android:background="@drawable/search_input_bg"
-                android:fontFamily="@font/kalam_regular"
-                android:hint="@string/input_search_hint"
-
-                android:inputType="text"
-                android:maxWidth="185dp"
-                android:paddingVertical="3dp"
-                android:paddingStart="45dp"
-
-                android:paddingEnd="20dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/gray"
-
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-
-                android:background="@drawable/search_bg"
-
-                android:contentDescription="@string/description_search_logo"
-                android:padding="4dp"
-                android:src="@drawable/search" />
-
-        </FrameLayout>
-
-        <!-- Filter -->
-        <LinearLayout
+        <include
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".30"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".2" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".4" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".4" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:layout_gravity="center"
+            layout="@layout/filter_component"
+        />
 
     </LinearLayout>
 
+
     <!-- Main -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:itemCount="5"
-        tools:listitem="@layout/item_layout" />
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_weight="30"
+    >
+
+        <include layout="@layout/list_component" />
+
+    </ScrollView>
+
+    <!--- Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".30"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:background="@color/red"
+    >
+
+        <Button
+            android:id="@+id/add_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/add_item_button_text"
+            android:background="@color/white"
+            android:textSize="16sp"
+        />
+
+    </LinearLayout>
 
 </LinearLayout>
