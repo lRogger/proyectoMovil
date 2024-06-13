@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    // Elimina la barra de estado de la aplicacion
     <style name="Theme.TODOListMobileProject" parent="android:Theme.Material.NoActionBar" />
 </resources>

@@ -1,6 +1,8 @@
 package com.example.todolist_mobileproject
 
+import PopupMenuHelper
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 
 // Renderizar elementos mutables
@@ -38,6 +40,20 @@ class App : ComponentActivity() {
         // Renderiza la lista de elementos
         val adapter = ItemAdapter(items)
         recyclerView.adapter = adapter
+
+
+        // Menu de filtros
+        val menuButton: Button = findViewById(R.id.filter_button)
+        menuButton.setOnClickListener { view ->
+            // Actualiza el texto que se muestra en el menu
+            PopupMenuHelper.showPopupMenu(this, view) {selectedItemTitle ->
+                menuButton.text = selectedItemTitle
+            }
+
+            // Aqui se deberia modificar el arreglo de Todos, para dependiendo del filtro
+            // mostrar solo los elementos que correspondan
+        }
+
 
         // ---------------------------------------------
         // DETALLES ESTETICOS
