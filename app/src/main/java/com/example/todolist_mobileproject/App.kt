@@ -17,8 +17,11 @@ import com.example.todolist_mobileproject.model.Item
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.todolist_mobileproject.db.TodoDbHelper
 
 class App : ComponentActivity() {
+
+    private val dbHelper by lazy { TodoDbHelper(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_layout) // Renderiza el layout app_layout.xml
@@ -30,12 +33,7 @@ class App : ComponentActivity() {
         recyclerView.layoutManager = gridLayoutManager
 
         // Crea una lista de elementos a renderizar // Reemplazar por API
-        val items = mutableListOf(
-            Item("Titulo 1", "Descripción 1"),
-            Item("Titulo 2", "Descripción 2"),
-            Item("Titulo 3", "Descripción 3"),
-            Item("Titulo 4", "Descripción 4"),
-        )
+        val items = dbHelper.obtenerTareas()
 
         // Renderiza la lista de elementos
         val adapter = ItemAdapter(items)

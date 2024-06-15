@@ -12,7 +12,7 @@ import android.widget.EditText
 import com.example.todolist_mobileproject.R
 
 class ItemAdapter(
-    private val items: MutableList<Item>
+    private val items: List<Item>
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Aqui se define la estructura de cada item
@@ -31,7 +31,6 @@ class ItemAdapter(
                 title.isEnabled = !isEnabled
                 description.isEnabled = !isEnabled
 
-                if (!isEnabled) {
                     title.requestFocus()
                     editButton.text = "Save"
                 } else {
