@@ -4,30 +4,65 @@
 
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+
+	android:weightSum="3"
 	android:orientation="horizontal"
+	android:divider="@drawable/input_space"
+	android:showDividers="middle"
+
+	tools:showIn="@layout/app_layout"
 >
+	<CheckBox
+		android:id="@+id/filter_check_all"
+		android:layout_weight="1"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
 
-		<ImageView
-			android:background="@drawable/search"
-			android:layout_width="30dp"
-			android:layout_height="30dp"
-			android:contentDescription="@string/description_filter_icon"
-		/>
+		android:paddingVertical="8dp"
+		android:background="@drawable/search_input_selected_bg"
+		android:button="@android:color/transparent"
 
-		<Button
-			android:id="@+id/filter_button"
-			android:paddingTop="3dp"
-			android:layout_width="fill_parent"
-			android:layout_height="match_parent"
-			android:background="@drawable/search_input_bg"
+		android:text="@string/filter_opt_all"
+		android:fontFamily="@font/Inter_Regular"
+		android:textColor="@color/input_selected_text_color"
+		android:textSize="14sp"
+		android:textAlignment="center"
 
-			android:text="@string/filter_opt_1"
-			android:fontFamily="@font/kalam_bold"
-			android:textColor="@color/white"
-			android:textSize="16sp"
-			android:gravity="center"
-			android:textAlignment="gravity"
+		android:checked="true"
+	/>
 
-		/>
+	<CheckBox
+		android:id="@+id/filter_check_pending"
+		android:layout_weight="1"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
 
+		android:paddingVertical="8dp"
+		android:background="@drawable/search_input_bg"
+		android:button="@android:color/transparent"
+
+		android:text="@string/filter_opt_pending"
+		android:fontFamily="@font/Inter_Regular"
+		android:textColor="@color/input_text_color"
+		android:textSize="14sp"
+		android:textAlignment="center"
+	/>
+
+	<CheckBox
+		android:id="@+id/filter_check_done"
+		android:layout_weight="1"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+
+		android:paddingVertical="8dp"
+		android:background="@drawable/search_input_bg"
+		android:button="@android:color/transparent"
+
+		android:text="@string/filter_opt_done"
+		android:fontFamily="@font/Inter_Regular"
+		android:textColor="@color/input_text_color"
+		android:textSize="14sp"
+		android:textAlignment="center"
+
+	/>
 </LinearLayout>
