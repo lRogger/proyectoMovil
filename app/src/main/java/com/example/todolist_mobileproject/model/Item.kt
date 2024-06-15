@@ -4,5 +4,5 @@ data class Item(
     var _ID: Long,
     var title: String,
     var description: String,
-    var state: String
+    var state: String,
 )

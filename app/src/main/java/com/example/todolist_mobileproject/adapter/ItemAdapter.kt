@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import com.example.todolist_mobileproject.R
 import com.example.todolist_mobileproject.db.TodoDbHelper
@@ -25,6 +26,7 @@ class ItemAdapter(
         private val title: EditText = view.findViewById(R.id.item_title)
         private val description: EditText = view.findViewById(R.id.item_description)
         private val editButton: Button = view.findViewById(R.id.edit_button)
+        private val statusCheck: CheckBox = view.findViewById(R.id.item_status_button)
 
         fun bind(item: Item, dbHelper: TodoDbHelper) {
             title.setText(item.title)
@@ -42,8 +44,22 @@ class ItemAdapter(
                 } else {
                     item.title = title.text.toString()
                     item.description = description.text.toString()
+
                     dbHelper.actualizarTarea(item)
                     editButton.setBackgroundResource(R.drawable.edit)
+                }
+            }
+
+
+            statusCheck.setOnClickListener {
+                val isDone = statusCheck.isChecked
+
+                if (isDone) {
+                    statusCheck.setText(R.string.status_text_done)
+                    statusCheck.setBackgroundResource(R.drawable.status_done_bg)
+                } else {
+                    statusCheck.setText(R.string.status_text_pending)
+                    statusCheck.setBackgroundResource(R.drawable.status_pending_bg)
                 }
             }
         }

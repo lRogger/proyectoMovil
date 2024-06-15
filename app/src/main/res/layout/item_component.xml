@@ -18,57 +18,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
 
-        android:gravity="center_vertical"
-        android:weightSum="2"
+        android:weightSum="4"
     >
-        <LinearLayout
-            android:layout_weight="1"
+
+        <EditText
+            android:id="@+id/item_title"
+            android:layout_weight="3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:gravity="center_vertical"
-            android:divider="@drawable/input_space"
-            android:showDividers="middle"
-        >
-            <EditText
-                android:id="@+id/item_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:inputType="text"
+            android:background="@android:color/transparent"
 
-                android:background="@android:color/transparent"
-                android:text="@string/item_input_title_hint"
-                android:fontFamily="@font/bold_inter"
-                android:textColor="@color/item_title_color"
-                android:textSize="24sp"
+            android:text="@string/item_input_title_hint"
+            android:fontFamily="@font/bold_inter"
+            android:textColor="@color/item_title_color"
+            android:textSize="24sp"
 
-                android:enabled="false"
+            android:enabled="false"
             />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:gravity="center"
+            android:gravity="end"
+            android:layout_gravity="center"
             android:orientation="horizontal"
             android:divider="@drawable/input_space"
             android:showDividers="middle"
         >
-            <Button
-                android:id="@+id/item_status_button"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-
-                android:paddingHorizontal="10dp"
-                android:text="@string/status_text_pending"
-                android:fontFamily="@font/regular_inter"
-                android:textSize="12sp"
-
-                android:background="@drawable/status_pending_bg"
-                />
 
             <Button
                 android:id="@+id/edit_button"
@@ -76,7 +57,7 @@
                 android:layout_height="15dp"
 
                 android:background="@drawable/edit"
-            />
+                />
 
             <Button
                 android:id="@+id/delete_button"
@@ -84,9 +65,26 @@
                 android:layout_height="15dp"
 
                 android:background="@drawable/delete"
-            />
+                />
+
         </LinearLayout>
+
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/item_status_button"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+
+
+        android:paddingHorizontal="10dp"
+        android:text="@string/status_text_pending"
+        android:fontFamily="@font/regular_inter"
+        android:textSize="12sp"
+
+        android:button="@android:color/transparent"
+        android:background="@drawable/status_pending_bg"
+        />
 
     <EditText
         android:id="@+id/item_description"
@@ -95,7 +93,9 @@
         android:maxHeight="78dp"
 
         android:background="@android:color/transparent"
-        android:hint="Hola"
+        android:inputType="textMultiLine"
+
+        android:hint="@string/item_input_description_hint"
         android:fontFamily="@font/regular_inter"
         android:textColor="@color/input_text_color"
         android:textSize="12sp"
