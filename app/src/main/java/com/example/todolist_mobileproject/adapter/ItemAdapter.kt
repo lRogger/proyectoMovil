@@ -10,9 +10,11 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import com.example.todolist_mobileproject.R
+import com.example.todolist_mobileproject.db.TodoDbHelper
 
 class ItemAdapter(
-    private val items: List<Item>
+    private val items: List<Item>,
+    private val dbHelper: TodoDbHelper
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Aqui se define la estructura de cada item
@@ -21,7 +23,7 @@ class ItemAdapter(
         private val description: EditText = view.findViewById(R.id.item_description)
         private val editButton: Button = view.findViewById(R.id.edit_button)
 
-        fun bind(item: Item) {
+        fun bind(item: Item, dbHelper: TodoDbHelper) {
             title.setText(item.title)
             description.setText(item.description)
 
@@ -31,13 +33,14 @@ class ItemAdapter(
                 title.isEnabled = !isEnabled
                 description.isEnabled = !isEnabled
 
-                if (isEnabled) {
+                if (!isEnabled) {
                     title.requestFocus()
-                    editButton.text = "Save"
+                    editButton.text = "Guardar"
                 } else {
                     item.title = title.text.toString()
                     item.description = description.text.toString()
-                    editButton.text = "Edit"
+                    dbHelper.actualizarTarea(item)
+                    editButton.text = "Editar"
                 }
             }
         }
@@ -53,7 +56,7 @@ class ItemAdapter(
     // Actualizamos los datos del item
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.bind(currentItem)
+        holder.bind(currentItem, dbHelper)
     }
 
     override fun getItemCount(): Int = items.size
