@@ -1,4 +1,4 @@
- <LinearLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -9,50 +9,97 @@
     android:orientation="vertical"
     android:padding="20dp"
 
-    tools:showIn="@layout/app_layout"
- >
+    android:layout_marginBottom="20dp"
+    android:divider="@drawable/input_space"
+    android:showDividers="middle"
 
-    <EditText
-        android:id="@+id/item_title"
+    tools:showIn="@layout/app_layout"
+>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
 
-        android:background="@android:color/transparent"
-        android:text="@string/item_input_title_hint"
-        android:fontFamily="@font/bold_inter"
-        android:textColor="@color/item_title_color"
-        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:weightSum="2"
+    >
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
-        android:enabled="false"
-    />
+            android:gravity="center_vertical"
+            android:divider="@drawable/input_space"
+            android:showDividers="middle"
+        >
+            <EditText
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@android:color/transparent"
+                android:text="@string/item_input_title_hint"
+                android:fontFamily="@font/bold_inter"
+                android:textColor="@color/item_title_color"
+                android:textSize="24sp"
+
+                android:enabled="false"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:divider="@drawable/input_space"
+            android:showDividers="middle"
+        >
+            <Button
+                android:id="@+id/item_status_button"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:paddingHorizontal="10dp"
+                android:text="@string/status_text_pending"
+                android:fontFamily="@font/regular_inter"
+                android:textSize="12sp"
+
+                android:background="@drawable/status_pending_bg"
+                />
+
+            <Button
+                android:id="@+id/edit_button"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+
+                android:background="@drawable/edit"
+            />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+
+                android:background="@drawable/delete"
+            />
+        </LinearLayout>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/item_description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:maxHeight="78dp"
 
+        android:background="@android:color/transparent"
         android:hint="@string/item_input_description_hint"
         android:fontFamily="@font/regular_inter"
-        android:textColor="@color/blanco"
-        android:textSize="14sp"
+        android:textColor="@color/input_text_color"
+        android:textSize="12sp"
 
         android:enabled="false"
-    />
-
-    <Button
-        android:id="@+id/edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="2dp"
-
-        android:text="@string/item_input_button_text"
-        android:fontFamily="@font/kalam_bold"
-        android:textColor="@color/blanco"
-        android:textSize="14sp"
-
-        android:background="@drawable/search_input_bg"
     />
 </LinearLayout>

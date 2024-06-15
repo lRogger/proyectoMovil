@@ -21,4 +21,7 @@
 
     <color name="item_title_color">@color/blanco</color>
     <color name="item_description_color">@color/gris</color>
+
+    <color name="status_pending_color">@color/morado_light</color>
+    <color name="status_done_color">@color/azul_light</color>
 </resources>

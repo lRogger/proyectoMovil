@@ -6,86 +6,83 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
 
-    android:padding="30dp"
     android:orientation="vertical"
-    android:gravity="center"
-
-    android:divider="@drawable/main_space"
-    android:showDividers="middle"
-
-    tools:context=".App"
+    android:background="@color/background_color"
 >
-    <!-- Header -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-    >
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/user"
-        />
-    </RelativeLayout>
-
-    <!-- Logo -->
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-    >
-
-        <include layout="@layout/logo_component" />
-
-    </GridLayout>
-
-    <!-- Search Bar -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/search_bar_component"
-        />
-
-    </RelativeLayout>
-
-    <!-- Filter -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/filter_component"
-        />
-    </RelativeLayout>
-
-    <!-- Main -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-    >
-        <include layout="@layout/list_component" />
-
-    </ScrollView>
-
-    <!--- Footer -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
+        android:layout_margin="30dp"
+        android:orientation="vertical"
         android:gravity="center"
-    >
-        <Button
-            android:id="@+id/add_item_button"
-            android:layout_width="50dp"
+
+        android:divider="@drawable/main_space"
+        android:showDividers="middle"
+
+        tools:context=".App"
+        >
+
+        <!-- Logo -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            >
+
+            <include layout="@layout/logo_component" />
+
+        </GridLayout>
+
+        <!-- Search Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/add"
-        />
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/search_bar_component"
+                />
+
+        </RelativeLayout>
+
+        <!-- Filter -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/filter_component"
+                />
+        </RelativeLayout>
+
+        <!-- Main -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            >
+            <include layout="@layout/list_component" />
+
+        </ScrollView>
+
+        <!--- Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <Button
+                android:id="@+id/add_item_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/add"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
+

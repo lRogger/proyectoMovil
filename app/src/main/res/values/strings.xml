@@ -15,5 +15,8 @@
     <string name="filter_opt_pending">Pendientes</string>
     <string name="filter_opt_done">Finalizadas</string>
 
+    <string name="status_text_pending">Pendiente</string>
+    <string name="status_text_done">Finalizada</string>
+
     <string name="add_item_button_text">Add item</string>
 </resources>
