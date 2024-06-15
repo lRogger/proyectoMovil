@@ -1,6 +1,11 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+
+    tools:showIn="@layout/app_layout"
 >
 
         <TextView
@@ -8,7 +13,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kalam_bold"
             android:text="@string/logo_left"
-            android:textColor="@color/red"
+            android:textColor="@color/Logo_text_Left_color"
             android:textSize="48sp"
         />
 
@@ -17,7 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kalam_bold"
             android:text="@string/logo_right"
-            android:textColor="@color/white"
+            android:textColor="@color/Logo_text_right_color"
             android:textSize="48sp"
         />
 

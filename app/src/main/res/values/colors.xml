@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="gray">#D9E2E7</color>
-    <color name="red">#A71814</color>
-    <color name="black_light">#10000A</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="morado">#3335155D</color>
+    <color name="morado_light">#512B81</color>
+    <color name="azul">#664477CE</color>
+    <color name="azul_light">#4477CE</color>
+    <color name="celeste">#8CABFF</color>
+    <color name="gris">#80FFFFFF</color>
+    <color name="blanco">#FFFFFFFF</color>
 
-    <color name="background_color">#10000A</color>
+    <color name="background_color">#33040207</color>
+    <color name="Icons_color">@color/azul_light</color>
+    <color name="Logo_text_Left_color">@color/azul_light</color>
+    <color name="Logo_text_right_color">@color/celeste</color>
+    <color name="Input_bg">@color/azul</color>
+    <color name="Input_selected_bg">@color/azul_light</color>
+    <color name="input_text_color">@color/gris</color>
+    <color name="input_selected_text_color">@color/blanco</color>
 </resources>
