@@ -23,7 +23,7 @@
 		android:button="@android:color/transparent"
 
 		android:text="@string/filter_opt_all"
-		android:fontFamily="@font/inter_regular"
+		android:fontFamily="@font/regular_inter"
 		android:textColor="@color/input_selected_text_color"
 		android:textSize="14sp"
 		android:textAlignment="center"
@@ -42,7 +42,7 @@
 		android:button="@android:color/transparent"
 
 		android:text="@string/filter_opt_pending"
-		android:fontFamily="@font/inter_regular"
+		android:fontFamily="@font/regular_inter"
 		android:textColor="@color/input_text_color"
 		android:textSize="14sp"
 		android:textAlignment="center"
@@ -59,7 +59,7 @@
 		android:button="@android:color/transparent"
 
 		android:text="@string/filter_opt_done"
-		android:fontFamily="@font/inter_regular"
+		android:fontFamily="@font/regular_inter"
 		android:textColor="@color/input_text_color"
 		android:textSize="14sp"
 		android:textAlignment="center"

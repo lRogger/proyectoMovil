@@ -19,7 +19,7 @@
 
         android:background="@android:color/transparent"
         android:text="@string/item_input_title_hint"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/bold_inter"
         android:textColor="@color/item_title_color"
         android:textSize="20sp"
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
 
         android:hint="@string/item_input_description_hint"
-        android:fontFamily="@font/kalam_regular"
+        android:fontFamily="@font/regular_inter"
         android:textColor="@color/blanco"
         android:textSize="14sp"
 

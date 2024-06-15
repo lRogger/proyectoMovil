@@ -30,7 +30,7 @@
             android:background="@android:color/transparent"
             android:inputType="text"
 
-            android:fontFamily="@font/inter_regular"
+            android:fontFamily="@font/regular_inter"
             android:textColor="@color/input_selected_text_color"
             android:textColorHint="@color/input_text_color"
             android:textSize="16sp"
