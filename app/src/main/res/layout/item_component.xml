@@ -91,11 +91,11 @@
     <EditText
         android:id="@+id/item_description"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:maxHeight="78dp"
 
         android:background="@android:color/transparent"
-        android:hint="@string/item_input_description_hint"
+        android:hint="Hola"
         android:fontFamily="@font/regular_inter"
         android:textColor="@color/input_text_color"
         android:textSize="12sp"

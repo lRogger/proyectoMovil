@@ -12,6 +12,9 @@ import android.widget.EditText
 import com.example.todolist_mobileproject.R
 import com.example.todolist_mobileproject.db.TodoDbHelper
 
+import androidx.core.graphics.drawable.toDrawable
+
+
 class ItemAdapter(
     private val items: List<Item>,
     private val dbHelper: TodoDbHelper
@@ -35,12 +38,12 @@ class ItemAdapter(
 
                 if (!isEnabled) {
                     title.requestFocus()
-                    editButton.text = "Guardar"
+                    editButton.setBackgroundResource(R.drawable.save)
                 } else {
                     item.title = title.text.toString()
                     item.description = description.text.toString()
                     dbHelper.actualizarTarea(item)
-                    editButton.text = "Editar"
+                    editButton.setBackgroundResource(R.drawable.edit)
                 }
             }
         }
