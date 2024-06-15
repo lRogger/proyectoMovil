@@ -10,10 +10,15 @@
 
     <color name="background_color">#33040207</color>
     <color name="Icons_color">@color/azul_light</color>
+
     <color name="Logo_text_Left_color">@color/azul_light</color>
     <color name="Logo_text_right_color">@color/celeste</color>
+
     <color name="Input_bg">@color/azul</color>
     <color name="Input_selected_bg">@color/azul_light</color>
     <color name="input_text_color">@color/gris</color>
     <color name="input_selected_text_color">@color/blanco</color>
+
+    <color name="item_title_color">@color/blanco</color>
+    <color name="item_description_color">@color/gris</color>
 </resources>
