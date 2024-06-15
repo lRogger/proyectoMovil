@@ -2,6 +2,7 @@ package com.example.todolist_mobileproject
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import android.util.Log
 
 // Renderizar elementos mutables
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,8 +35,16 @@ class App : ComponentActivity() {
         // Crea una lista de elementos a renderizar // Reemplazar por API
         val items = dbHelper.obtenerTareas()
 
+        if (dbHelper.obtenerTareas().isEmpty()) {
+            dbHelper.ingresoTarea("Comprar leche", "Ir al supermercado", "Pendiente")
+            dbHelper.ingresoTarea("Estudiar Java", "Preparar para examen", "En progreso")
+            dbHelper.ingresoTarea("Llamar al médico", "Hacer cita", "Completo")
+        }
+        Log.d("MainActivity",items.size.toString())
+
+
         // Renderiza la lista de elementos
-        val adapter = ItemAdapter(items)
+        val adapter = ItemAdapter(items, dbHelper)
         recyclerView.adapter = adapter
 
 

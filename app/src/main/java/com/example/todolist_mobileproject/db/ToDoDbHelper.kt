@@ -80,5 +80,21 @@ class TodoDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return items
     }
 
+    fun actualizarTarea(item: Item) {
+        val db = writableDatabase
 
+        val values = ContentValues().apply {
+            put(TodoContract.TodoEntry.COLUMN_TITLE, item.title)
+            put(TodoContract.TodoEntry.COLUMN_DESCRIPTION, item.description)
+            put(TodoContract.TodoEntry.COLUMN_STATE, item.state)
+        }
+
+        val selection = "${TodoContract.TodoEntry._ID} = ?"
+        val selectionArgs = arrayOf(item._ID.toString())
+
+        db.update(TodoContract.TodoEntry.TABLE_NAME, values, selection, selectionArgs)
+    }
 }
+
+
+
