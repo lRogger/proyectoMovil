@@ -31,6 +31,7 @@ class ItemAdapter(
                 title.isEnabled = !isEnabled
                 description.isEnabled = !isEnabled
 
+                if (isEnabled) {
                     title.requestFocus()
                     editButton.text = "Save"
                 } else {
