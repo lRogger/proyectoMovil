@@ -45,7 +45,7 @@ class TodoDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return newRowId
     }
 
-    fun obtenerTareas(): List<Item> {
+    fun obtenerTareas(): MutableList<Item> {
         val items = mutableListOf<Item>()
         val db = readableDatabase
 

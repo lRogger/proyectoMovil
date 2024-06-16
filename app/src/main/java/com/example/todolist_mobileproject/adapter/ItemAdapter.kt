@@ -27,10 +27,16 @@ class ItemAdapter(
         private val description: EditText = view.findViewById(R.id.item_description)
         private val editButton: Button = view.findViewById(R.id.edit_button)
         private val statusCheck: CheckBox = view.findViewById(R.id.item_status_button)
+        private val context = itemView.context
 
         fun bind(item: Item, dbHelper: TodoDbHelper) {
             title.setText(item.title)
             description.setText(item.description)
+
+            statusCheck.setText( item.state)
+            if (statusCheck.text == context.getString(R.string.status_text_done)) {
+                statusCheck.setBackgroundResource(R.drawable.status_done_bg)
+            }
 
             // Editar item
             editButton.setOnClickListener {
@@ -44,7 +50,7 @@ class ItemAdapter(
                 } else {
                     item.title = title.text.toString()
                     item.description = description.text.toString()
-
+                    item.state = statusCheck.toString()
                     dbHelper.actualizarTarea(item)
                     editButton.setBackgroundResource(R.drawable.edit)
                 }
@@ -52,15 +58,17 @@ class ItemAdapter(
 
 
             statusCheck.setOnClickListener {
-                val isDone = statusCheck.isChecked
 
-                if (isDone) {
+                if (statusCheck.text == context.getString(R.string.status_text_pending)) {
                     statusCheck.setText(R.string.status_text_done)
                     statusCheck.setBackgroundResource(R.drawable.status_done_bg)
                 } else {
                     statusCheck.setText(R.string.status_text_pending)
                     statusCheck.setBackgroundResource(R.drawable.status_pending_bg)
+
                 }
+                item.state = statusCheck.text.toString()
+                dbHelper.actualizarTarea(item)
             }
         }
     }
