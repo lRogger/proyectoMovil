@@ -59,7 +59,7 @@ class App : ComponentActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                cargarData(dbHelper.obtenerTareas())
+                items = dbHelper.obtenerTareas()
                 val searchText = s.toString().lowercase()
                 val filteredItems = items.filter { item ->
                     searchText in item.title.lowercase() || searchText in item.description.lowercase()
@@ -103,11 +103,13 @@ class App : ComponentActivity() {
     }
 
      fun cargarData(items: List<Item>){
-        val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
-        val linearLayoutManager = LinearLayoutManager(this)
-        val adapter = ItemAdapter(items, dbHelper, this)
-        recyclerView.layoutManager = linearLayoutManager
-        recyclerView.adapter = adapter
+
+         val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
+         val linearLayoutManager = LinearLayoutManager(this)
+         val adapter = ItemAdapter(items, dbHelper, this)
+         recyclerView.layoutManager = linearLayoutManager
+         recyclerView.adapter = adapter
+
     }
 
     private fun agregarTarea(){
@@ -118,8 +120,9 @@ class App : ComponentActivity() {
     }
 
     private fun filterItems(items: List<Item>) {
-        cargarData(dbHelper.obtenerTareas())
+
         filterGroup.setOnCheckedChangeListener { group, checkedId ->
+            this.items = dbHelper.obtenerTareas()
             group.forEach { it ->
                 val filter = it as RadioButton
 
@@ -130,7 +133,7 @@ class App : ComponentActivity() {
                     val isAll = filter.text.toString() === getString(R.string.filter_opt_all)
 
                     if (!isAll) {
-                        val filteredItems = items.filter { item -> item.state == filter.text }
+                        val filteredItems = this.items.filter { item -> item.state == filter.text }
                         cargarData(filteredItems)
                     } else {
                         cargarData(dbHelper.obtenerTareas())
