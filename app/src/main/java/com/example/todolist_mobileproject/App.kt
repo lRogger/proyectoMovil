@@ -51,6 +51,7 @@ class App : ComponentActivity() {
         btnAdd.setOnClickListener{
             agregarTarea()
         }
+
     }
 
     private fun initUI() {
@@ -72,6 +73,7 @@ class App : ComponentActivity() {
         val linearLayoutManager = LinearLayoutManager(this)
         val items: List<Item> = dbHelper.obtenerTareas()
         val adapter = ItemAdapter(items, dbHelper)
+
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
@@ -109,4 +111,6 @@ class App : ComponentActivity() {
             }
         }
     }
+
+
 }
