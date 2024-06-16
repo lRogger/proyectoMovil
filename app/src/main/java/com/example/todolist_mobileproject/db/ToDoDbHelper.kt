@@ -94,6 +94,17 @@ class TodoDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
         db.update(TodoContract.TodoEntry.TABLE_NAME, values, selection, selectionArgs)
     }
+
+    fun eliminarTarea(item: Item){
+        val db = writableDatabase
+
+        val selection = "${TodoContract.TodoEntry._ID} = ?"
+        val selectionArgs = arrayOf(item._ID.toString())
+
+        // Realizar la eliminación
+        db.delete(TodoContract.TodoEntry.TABLE_NAME, selection, selectionArgs)
+
+    }
 }
 
 

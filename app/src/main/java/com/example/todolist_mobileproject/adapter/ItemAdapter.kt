@@ -13,7 +13,6 @@ import android.widget.EditText
 import com.example.todolist_mobileproject.R
 import com.example.todolist_mobileproject.db.TodoDbHelper
 
-import androidx.core.graphics.drawable.toDrawable
 
 
 class ItemAdapter(
@@ -21,13 +20,18 @@ class ItemAdapter(
     private val dbHelper: TodoDbHelper
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    // Aqui se define la estructura de cada item
+    private var onDeleteItemListener: OnDeleteItemListener? = null
+    interface OnDeleteItemListener {
+        fun onDeleteItem(item: Item)
+    }
     class ItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val title: EditText = view.findViewById(R.id.item_title)
         private val description: EditText = view.findViewById(R.id.item_description)
         private val editButton: Button = view.findViewById(R.id.edit_button)
+        private val deleteButton: Button = view.findViewById(R.id.delete_button)
         private val statusCheck: CheckBox = view.findViewById(R.id.item_status_button)
         private val context = itemView.context
+
 
         fun bind(item: Item, dbHelper: TodoDbHelper) {
             title.setText(item.title)
@@ -54,6 +58,12 @@ class ItemAdapter(
                     dbHelper.actualizarTarea(item)
                     editButton.setBackgroundResource(R.drawable.edit)
                 }
+            }
+
+            deleteButton.setOnClickListener {
+
+                dbHelper.eliminarTarea(item)
+
             }
 
 
@@ -86,5 +96,12 @@ class ItemAdapter(
         holder.bind(currentItem, dbHelper)
     }
 
+
     override fun getItemCount(): Int = items.size
+
+    fun setOnDeleteItemListener(listener: OnDeleteItemListener) {
+
+        onDeleteItemListener = listener
+    }
+
 }

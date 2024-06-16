@@ -41,6 +41,7 @@ class App : ComponentActivity() {
         btnAdd.setOnClickListener{
             agregarTarea()
         }
+
     }
 
     private fun initUI() {
@@ -63,6 +64,7 @@ class App : ComponentActivity() {
         val items: List<Item> = dbHelper.obtenerTareas()
         val adapter = ItemAdapter(items, dbHelper)
 
+
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
     }
@@ -73,4 +75,6 @@ class App : ComponentActivity() {
             getString(R.string.status_text_pending))
         cargarData()
     }
+
+
 }
