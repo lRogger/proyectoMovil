@@ -39,7 +39,7 @@ class App : ComponentActivity() {
 
     private fun initListeners() {
         btnAdd.setOnClickListener{
-
+            agregarTarea()
         }
     }
 
@@ -65,5 +65,12 @@ class App : ComponentActivity() {
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
+    }
+
+    private fun agregarTarea(){
+        dbHelper.ingresoTarea(getString(R.string.item_input_title_hint),
+            getString(R.string.item_input_description_hint),
+            getString(R.string.status_text_pending))
+        cargarData()
     }
 }
