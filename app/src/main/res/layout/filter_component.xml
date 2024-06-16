@@ -1,7 +1,8 @@
-<LinearLayout
+<RadioGroup
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 
+	android:id="@+id/filter_check_group"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 
@@ -12,7 +13,7 @@
 
 	tools:showIn="@layout/app_layout"
 >
-	<CheckBox
+	<RadioButton
 		android:id="@+id/filter_check_all"
 		android:layout_weight="1"
 		android:layout_width="0dp"
@@ -31,7 +32,7 @@
 		android:checked="true"
 	/>
 
-	<CheckBox
+	<RadioButton
 		android:id="@+id/filter_check_pending"
 		android:layout_weight="1"
 		android:layout_width="0dp"
@@ -48,7 +49,7 @@
 		android:textAlignment="center"
 	/>
 
-	<CheckBox
+	<RadioButton
 		android:id="@+id/filter_check_done"
 		android:layout_weight="1"
 		android:layout_width="0dp"
@@ -65,4 +66,4 @@
 		android:textAlignment="center"
 
 	/>
-</LinearLayout>
+</RadioGroup>
