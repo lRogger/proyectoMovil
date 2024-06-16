@@ -15,7 +15,6 @@
     tools:showIn="@layout/app_layout"
 >
         <ImageView
-            android:id="@+id/imageView"
             android:layout_width="20dp"
             android:layout_height="20dp"
 

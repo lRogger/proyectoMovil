@@ -1,8 +1,11 @@
 package com.example.todolist_mobileproject
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.activity.ComponentActivity
 import android.widget.Button
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 
@@ -44,6 +47,33 @@ class App : ComponentActivity() {
 
     private fun initListeners() {
         filterItems(items)
+
+        val searchBar: EditText = findViewById(R.id.input_search_bar)
+
+        searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Código a ejecutar antes de que el texto cambie
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Código a ejecutar mientras el texto está cambiando
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val searchFilter = items.filter { item ->
+                    s.toString().lowercase() in item.title.lowercase()
+                }
+
+                val idChecked = filterGroup.checkedRadioButtonId
+                val filter = filterGroup.findViewById<RadioButton>(idChecked).text
+
+                val applyFilter = searchFilter.filter { item ->
+                    item.state === filter.toString()
+                }
+
+                cargarData(searchFilter)
+            }
+        })
 
         btnAdd.setOnClickListener{
             agregarTarea()
@@ -106,6 +136,5 @@ class App : ComponentActivity() {
             }
         }
     }
-
 
 }
