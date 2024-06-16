@@ -1,13 +1,10 @@
 package com.example.todolist_mobileproject
 
-import android.icu.text.DecimalFormat
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import android.util.Log
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Toast
 
 // Renderizar elementos mutables
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -71,9 +68,7 @@ class App : ComponentActivity() {
     private fun cargarData(items: List<Item>){
         val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
         val linearLayoutManager = LinearLayoutManager(this)
-        val items: List<Item> = dbHelper.obtenerTareas()
         val adapter = ItemAdapter(items, dbHelper)
-
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter

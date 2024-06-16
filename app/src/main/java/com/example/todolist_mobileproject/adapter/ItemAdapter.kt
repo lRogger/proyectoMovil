@@ -10,20 +10,14 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+
 import com.example.todolist_mobileproject.R
 import com.example.todolist_mobileproject.db.TodoDbHelper
-
-
 
 class ItemAdapter(
     private val items: List<Item>,
     private val dbHelper: TodoDbHelper
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-
-    private var onDeleteItemListener: OnDeleteItemListener? = null
-    interface OnDeleteItemListener {
-        fun onDeleteItem(item: Item)
-    }
     class ItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val title: EditText = view.findViewById(R.id.item_title)
         private val description: EditText = view.findViewById(R.id.item_description)
@@ -61,7 +55,6 @@ class ItemAdapter(
             }
 
             deleteButton.setOnClickListener {
-
                 dbHelper.eliminarTarea(item)
 
             }
@@ -96,12 +89,6 @@ class ItemAdapter(
         holder.bind(currentItem, dbHelper)
     }
 
-
     override fun getItemCount(): Int = items.size
-
-    fun setOnDeleteItemListener(listener: OnDeleteItemListener) {
-
-        onDeleteItemListener = listener
-    }
 
 }
