@@ -78,7 +78,7 @@
 
 
         android:paddingHorizontal="10dp"
-        android:text="@string/status_text_pending"
+        android:text="@string/filter_opt_pending"
         android:fontFamily="@font/regular_inter"
         android:textSize="12sp"
 

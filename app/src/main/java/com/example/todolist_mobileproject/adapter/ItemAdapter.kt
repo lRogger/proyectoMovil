@@ -34,7 +34,7 @@ class ItemAdapter(
             description.setText(item.description)
 
             statusCheck.setText( item.state)
-            if (statusCheck.text == context.getString(R.string.status_text_done)) {
+            if (statusCheck.text == context.getString(R.string.filter_opt_done)) {
                 statusCheck.setBackgroundResource(R.drawable.status_done_bg)
             }
 
@@ -59,11 +59,11 @@ class ItemAdapter(
 
             statusCheck.setOnClickListener {
 
-                if (statusCheck.text == context.getString(R.string.status_text_pending)) {
-                    statusCheck.setText(R.string.status_text_done)
+                if (statusCheck.text == context.getString(R.string.filter_opt_pending)) {
+                    statusCheck.setText(R.string.filter_opt_done)
                     statusCheck.setBackgroundResource(R.drawable.status_done_bg)
                 } else {
-                    statusCheck.setText(R.string.status_text_pending)
+                    statusCheck.setText(R.string.filter_opt_pending)
                     statusCheck.setBackgroundResource(R.drawable.status_pending_bg)
 
                 }
