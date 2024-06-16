@@ -70,10 +70,18 @@ class App : ComponentActivity() {
     private fun cargarData(items: List<Item>){
         val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
         val linearLayoutManager = LinearLayoutManager(this)
+        val items: List<Item> = dbHelper.obtenerTareas()
         val adapter = ItemAdapter(items, dbHelper)
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
+    }
+
+    private fun agregarTarea(){
+        dbHelper.ingresoTarea(getString(R.string.item_input_title_hint),
+            getString(R.string.item_input_description_hint),
+            getString(R.string.filter_opt_pending))
+        cargarData(dbHelper.obtenerTareas())
     }
 
     private fun filterItems(items: List<Item>) {

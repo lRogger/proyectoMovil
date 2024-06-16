@@ -63,7 +63,7 @@ class TodoDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             null,                               // Valores para la cláusula WHERE
             null,                               // No agrupar las filas
             null,                               // No filtrar por grupos de filas
-            null                                // No ordenar las filas
+            "${TodoContract.TodoEntry._ID} DESC"                                // No ordenar las filas
         )
 
         cursor.use { // Use cursor as a lambda receiver
