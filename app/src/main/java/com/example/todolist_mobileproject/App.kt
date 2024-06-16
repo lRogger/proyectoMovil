@@ -49,7 +49,7 @@ class App : ComponentActivity() {
         filterItems(items)
 
         btnAdd.setOnClickListener{
-
+            agregarTarea()
         }
     }
 
