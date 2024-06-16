@@ -50,28 +50,35 @@ class App : ComponentActivity() {
 
         val searchBar: EditText = findViewById(R.id.input_search_bar)
 
+
         searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Código a ejecutar antes de que el texto cambie
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Código a ejecutar mientras el texto está cambiando
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val searchFilter = items.filter { item ->
-                    s.toString().lowercase() in item.title.lowercase()
+                cargarData(dbHelper.obtenerTareas())
+                val searchText = s.toString().lowercase()
+                val filteredItems = items.filter { item ->
+                    searchText in item.title.lowercase() || searchText in item.description.lowercase()
                 }
 
                 val idChecked = filterGroup.checkedRadioButtonId
-                val filter = filterGroup.findViewById<RadioButton>(idChecked).text
-
-                val applyFilter = searchFilter.filter { item ->
-                    item.state === filter.toString()
+                if (idChecked != -1) {
+                    val filter = filterGroup.findViewById<RadioButton>(idChecked).text.toString()
+                    if (filter != getString(R.string.filter_opt_all)) {
+                        val filteredByStatus = filteredItems.filter { item ->
+                            item.state == filter
+                        }
+                        cargarData(filteredByStatus)
+                    } else {
+                        cargarData(filteredItems)
+                    }
+                } else {
+                    cargarData(filteredItems)
                 }
-
-                cargarData(searchFilter)
             }
         })
 
@@ -99,7 +106,6 @@ class App : ComponentActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
         val linearLayoutManager = LinearLayoutManager(this)
         val adapter = ItemAdapter(items, dbHelper, this)
-
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
     }
@@ -112,6 +118,7 @@ class App : ComponentActivity() {
     }
 
     private fun filterItems(items: List<Item>) {
+        cargarData(dbHelper.obtenerTareas())
         filterGroup.setOnCheckedChangeListener { group, checkedId ->
             group.forEach { it ->
                 val filter = it as RadioButton
@@ -120,13 +127,13 @@ class App : ComponentActivity() {
                     filter.setBackgroundResource(R.drawable.search_input_selected_bg)
                     filter.setTextColor(getColor(R.color.input_selected_text_color))
 
-                    val isAll = filter.text === getString(R.string.filter_opt_all)
+                    val isAll = filter.text.toString() === getString(R.string.filter_opt_all)
 
                     if (!isAll) {
                         val filteredItems = items.filter { item -> item.state == filter.text }
                         cargarData(filteredItems)
                     } else {
-                        cargarData(items)
+                        cargarData(dbHelper.obtenerTareas())
                     }
 
                 } else {

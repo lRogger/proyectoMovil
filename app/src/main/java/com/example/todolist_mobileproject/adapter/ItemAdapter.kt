@@ -35,7 +35,7 @@ class ItemAdapter(
             description.setText(item.description)
 
             statusCheck.setText( item.state)
-            if (statusCheck.text == context.getString(R.string.filter_opt_done)) {
+            if (statusCheck.text.toString() == context.getString(R.string.filter_opt_done)) {
                 statusCheck.setBackgroundResource(R.drawable.status_done_bg)
             }
 
@@ -48,14 +48,16 @@ class ItemAdapter(
                 if (!isEnabled) {
                     title.requestFocus()
                     editButton.setBackgroundResource(R.drawable.save)
+
                 } else {
                     item.title = title.text.toString()
                     item.description = description.text.toString()
-                    item.state = statusCheck.toString()
+                    item.state = statusCheck.text.toString()
                     dbHelper.actualizarTarea(item)
                     editButton.setBackgroundResource(R.drawable.edit)
                 }
             }
+
 
             deleteButton.setOnClickListener {
                 dbHelper.eliminarTarea(item)
@@ -66,10 +68,10 @@ class ItemAdapter(
             statusCheck.setOnClickListener {
 
                 if (statusCheck.text == context.getString(R.string.filter_opt_pending)) {
-                    statusCheck.setText(R.string.filter_opt_done)
+                    statusCheck.setText(context.getString(R.string.filter_opt_done))
                     statusCheck.setBackgroundResource(R.drawable.status_done_bg)
                 } else {
-                    statusCheck.setText(R.string.filter_opt_pending)
+                    statusCheck.setText(context.getString(R.string.filter_opt_pending))
                     statusCheck.setBackgroundResource(R.drawable.status_pending_bg)
 
                 }
