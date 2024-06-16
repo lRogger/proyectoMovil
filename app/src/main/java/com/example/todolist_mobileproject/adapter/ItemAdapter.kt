@@ -1,6 +1,7 @@
 package com.example.todolist_mobileproject.adapter
 
 import com.example.todolist_mobileproject.model.Item
+import com.example.todolist_mobileproject.App
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -16,7 +17,8 @@ import com.example.todolist_mobileproject.db.TodoDbHelper
 
 class ItemAdapter(
     private val items: List<Item>,
-    private val dbHelper: TodoDbHelper
+    private val dbHelper: TodoDbHelper,
+    private val app: App
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val title: EditText = view.findViewById(R.id.item_title)
@@ -27,7 +29,8 @@ class ItemAdapter(
         private val context = itemView.context
 
 
-        fun bind(item: Item, dbHelper: TodoDbHelper) {
+
+        fun bind(item: Item, dbHelper: TodoDbHelper, app: App) {
             title.setText(item.title)
             description.setText(item.description)
 
@@ -56,7 +59,7 @@ class ItemAdapter(
 
             deleteButton.setOnClickListener {
                 dbHelper.eliminarTarea(item)
-
+                app.cargarData(dbHelper.obtenerTareas())
             }
 
 
@@ -86,7 +89,7 @@ class ItemAdapter(
     // Actualizamos los datos del item
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.bind(currentItem, dbHelper)
+        holder.bind(currentItem, dbHelper, app)
     }
 
     override fun getItemCount(): Int = items.size

@@ -35,6 +35,7 @@
             android:fontFamily="@font/bold_inter"
             android:textColor="@color/item_title_color"
             android:textSize="24sp"
+            android:hint="@string/item_input_title_hint"
 
             android:enabled="false"
             />

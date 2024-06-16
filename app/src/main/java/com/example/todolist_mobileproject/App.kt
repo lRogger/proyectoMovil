@@ -95,18 +95,18 @@ class App : ComponentActivity() {
         }
     }
 
-    private fun cargarData(items: List<Item>){
+     fun cargarData(items: List<Item>){
         val recyclerView: RecyclerView = findViewById(R.id.list_recycler_view)
         val linearLayoutManager = LinearLayoutManager(this)
-        val adapter = ItemAdapter(items, dbHelper)
+        val adapter = ItemAdapter(items, dbHelper, this)
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = adapter
     }
 
     private fun agregarTarea(){
-        dbHelper.ingresoTarea(getString(R.string.item_input_title_hint),
-            getString(R.string.item_input_description_hint),
+        dbHelper.ingresoTarea("",
+            "",
             getString(R.string.filter_opt_pending))
         cargarData(dbHelper.obtenerTareas())
     }
